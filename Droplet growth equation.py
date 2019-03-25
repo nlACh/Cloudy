@@ -25,12 +25,12 @@ M_w = 18
 sigma_w = 72E-3 #surface tension @ 4C b/w water droplet and vapour
 
 # Some declared stuff, need to be user fed
-n #dissociation co-efficient
-M_species
-rho_species
+n=0.0 #dissociation co-efficient
+M_species=0.0
+rho_species=0.0
 # Kohler hygroscopicity co-efficient
-a # Kelvin term
-b # Raoult's law term
+a=0.0 # Kelvin term
+b=0.0 # Raoult's law term
 
 """
 Consider the starting equations...
@@ -42,7 +42,7 @@ w is some function of r. So replace dw/dt with dr/dt
 
 def init():
     # A function to take in the species of molecules considered
-    global rho_species, M_species
+    global rho_species, M_species, n
     print("What kind of aerosol species would you be using?")
     str = input()
     print("Enter some info about the species: molecular mass, density and dissociation coefficient")
