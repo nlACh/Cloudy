@@ -28,6 +28,7 @@ sigma_w = 72E-3 #surface tension @ 4C b/w water droplet and vapour
 n=0.0 #dissociation co-efficient
 M_species=0.0
 rho_species=0.0
+species = ''
 # Kohler hygroscopicity co-efficient
 a=0.0 # Kelvin term
 b=0.0 # Raoult's law term
@@ -36,20 +37,27 @@ b=0.0 # Raoult's law term
 Consider the starting equations...
 rdr/dt = (S-1 - a/r +b/r3)/(K + D)
 and
-ds/dt = aV - bdw/dt
+ds/dt = A1*V - A2*dw/dt
 w is some function of r. So replace dw/dt with dr/dt
 """
 
+# Init values of A1 and A2
+A1 = 0.0
+A2 = 0.0
+
+# -------------------------------------------------------------------------------------------- #
 def init():
     # A function to take in the species of molecules considered
-    global rho_species, M_species, n
+    global rho_species, M_species, n, a, b, species
     print("What kind of aerosol species would you be using?")
-    str = input()
+    species = input()
     print("Enter some info about the species: molecular mass, density and dissociation coefficient")
-    M_species, rho_species, n = input().split()
+    M_species, rho_species, n = [np.float(x) for x in input().split(',')]
     # calculate coefficient of Kohler theory
     a = (2*sigma_w*M_w)/(rho_w*R*T)
     b = (n*M_w*rho_species)/(M_species*rho_w)
+    # TODO
+    # Add initializers for A1 and A2
 
 def Kohler(a, b, r):
     S = []
@@ -67,9 +75,10 @@ def integrator(S_i, r_i, step, K, D, V):
         _r = S_i/((K+D)*r_i)
         ri_t.append( ri_t[t] + _r * dt)
 
-        _s = a*V - b*_r*(ri_t[t+1]**2)
+        _s = A1*V - A2*_r*(ri_t[t+1]**2)
         si_t.append( si_t[t] + _s * dt)
     return ri_t, si_t
+
 
 def main():
     init()
@@ -77,19 +86,24 @@ def main():
     R_T = []
     S_T = []
     print("Enter min and max value of seed radius")
-    seed_small, seed_high = input().split(',')
+    seed_small, seed_high = [np.float(x) for x in input().split(',')]
     r = np.random.uniform(seed_small, seed_high, size=1000)
     # Arrange the array in ascending order of radius
     r.sort()
     S = Kohler(a,b,r)
+    plot(r, S)
     for i in range(1000):
         ri_t, si_t = integrator(S[i], r[i], dt)
         R_T.append(ri_t)
         S_T.append(si_t)
 
-def plot():
+
+def plot(x,y):
     # TODO
+    plt.plot(x,y)
+    plt.show()
     """
     Some way to just see the change of radius and supersaturation over time for individual droplets...
     """
+
 main()
