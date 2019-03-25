@@ -92,15 +92,17 @@ def main():
     r.sort()
     S = Kohler(a,b,r)
     plot(r, S)
+    """
     for i in range(1000):
-        ri_t, si_t = integrator(S[i], r[i], dt)
+        ri_t, si_t = integrator(S[i], r[i], dt, 1, 1, 1)
         R_T.append(ri_t)
         S_T.append(si_t)
-
+    """
 
 def plot(x,y):
     # TODO
     plt.plot(x,y)
+    plt.autoscale(enable=True, axis='both', tight=True)
     plt.show()
     """
     Some way to just see the change of radius and supersaturation over time for individual droplets...
