@@ -1,23 +1,17 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 31 19:33:50 2019
-
-@author: nlpl9
-"""
-
-g = 9.81 # m/s^2
-
-lapse_rate_env = 0.004 # Kelvin per meter 
-dry_gas_const = 8.314
-R = dry_gas_const
-R_moist = 461.5 # some bizzare calculation
-T = 277 #Kelvin, 4C
-rho_w = 1.00E3 #K/m^3
-M_w = 18.05E-3 #Kg
-sigma_w = 72E-3 #surface tension @ 4C b/w water droplet and vapour
-L_vap = 2.5E6 # J/Kg Latent heat of vaporisation
-rho_dry = 1.29 # vapor density of dry air
-eps = 0.622 # some mixing ratio thingies
-cp = 1004 # J/(Kg K) Specific heat a const pressure
-kappa = 2.4E-2 # J/(msK) Thermal conductivity of air
-D = 2.21E-5 # m2/s Coefficient of diffusion of air molecules
+g = 9.81
+R = 287 # J/(Kg K)
+R_dry = R
+R_v = 461.5
+R_moist = R_v
+sigma_w = 72E-3
+M_w = 18.15E-3 # Kg
+rho_w = 999.86 # Kg/m^3
+L_vap = 2.5E6 # J/Kg
+kappa = 2.40E-2 # J/(m s K)
+D_v = 2.21E-5 # m^2/s
+adia_lapse_rate = 0.004 # K/m
+amb_lapse_rate = 9.8E-3 # K/m
+cp = 1004 # J/(Kg K)
+epsilon = 0.622
+rho_air = 1.29 # Kg/m^3
+es0 = 610.7 # Pa
