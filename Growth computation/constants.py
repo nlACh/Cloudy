@@ -1,10 +1,12 @@
 g = 9.81
-R = 287 # J/(Kg K)
+#R = 8.314 # 287 # J/(Kg K)
+R = 287
 R_dry = R
+#R_v = 13.369 #  461.5
 R_v = 461.5
 R_moist = R_v
 sigma_w = 72E-3
-M_w = 18.15E-3 # Kg
+M_w = 18.15E-3 # Kg/mol
 rho_w = 999.86 # Kg/m^3
 L_vap = 2.5E6 # J/Kg
 kappa = 2.40E-2 # J/(m s K)
