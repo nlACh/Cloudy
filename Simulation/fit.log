@@ -1,0 +1,180 @@
+
+
+*******************************************************************************
+Tue Apr 02 21:38:35 2019
+
+
+FIT:    data read from 'latentheat.txt'
+        format = z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: L(x)
+	L(x) = m*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             c            
+   0 6.2056666236e+13  0.00e+00 1.36e+01  1.000000e+00  1.000000e+00
+   5 3.5752195824e+06 -5.74e-05 1.36e-04 -2.403427e+03  2.501535e+06
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 3.57522e+006
+rel. change during last iteration : -5.74103e-010
+
+degrees of freedom    (FIT_NDF)                        : 8
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 668.508
+variance of residuals (reduced chisquare) = WSSR/ndf   : 446902
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -2403.43         +/- 11.34        (0.472%)
+c               = 2.50154e+006     +/- 217.5        (0.008694%)
+
+correlation matrix of the fit parameters:
+                m      c      
+m               1.000 
+c              -0.235  1.000 
+
+
+*******************************************************************************
+Tue Apr 02 21:39:37 2019
+
+
+FIT:    data read from 'latentheat.txt'
+        format = z
+        #datapoints = 9
+        residuals are weighted equally (unit weight)
+
+function used for fitting: L(x)
+	L(x) = m*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             c            
+   0 3.2532920183e+06  0.00e+00 1.77e+06 -2.403427e+03  2.501535e+06
+   4 3.1235454545e+06 -4.89e-01 1.77e+02 -2.409273e+03  2.501482e+06
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 3.12355e+006
+rel. change during last iteration : -4.89207e-006
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 667.998
+variance of residuals (reduced chisquare) = WSSR/ndf   : 446221
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -2409.27         +/- 12.74        (0.5287%)
+c               = 2.50148e+006     +/- 223.7        (0.008942%)
+
+correlation matrix of the fit parameters:
+                m      c      
+m               1.000 
+c              -0.095  1.000 
+
+
+*******************************************************************************
+Tue Apr 02 21:40:38 2019
+
+
+FIT:    data read from 'latentheat.txt' u 1:2
+        format = x:z
+        #datapoints = 9
+        residuals are weighted equally (unit weight)
+
+function used for fitting: L(x)
+	L(x) = m*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             c            
+   0 3.1235454545e+06  0.00e+00 1.77e+06 -2.409273e+03  2.501482e+06
+   1 3.1235454545e+06  0.00e+00 1.77e+06 -2.409273e+03  2.501482e+06
+
+After 1 iterations the fit converged.
+final sum of squares of residuals : 3.12355e+006
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 667.998
+variance of residuals (reduced chisquare) = WSSR/ndf   : 446221
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -2409.27         +/- 12.74        (0.5287%)
+c               = 2.50148e+006     +/- 223.7        (0.008942%)
+
+correlation matrix of the fit parameters:
+                m      c      
+m               1.000 
+c              -0.095  1.000 
+
+
+*******************************************************************************
+Tue Apr 02 21:40:56 2019
+
+
+FIT:    data read from 'latentheat.txt' u 1:2
+        format = x:z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: L(x)
+	L(x) = m*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             c            
+   0 3.7572572807e+06  0.00e+00 1.77e+06 -2.409273e+03  2.501482e+06
+   4 3.5752195824e+06 -2.83e-01 1.77e+02 -2.403427e+03  2.501535e+06
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 3.57522e+006
+rel. change during last iteration : -2.83414e-006
+
+degrees of freedom    (FIT_NDF)                        : 8
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 668.508
+variance of residuals (reduced chisquare) = WSSR/ndf   : 446902
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -2403.43         +/- 11.34        (0.472%)
+c               = 2.50154e+006     +/- 217.5        (0.008694%)
+
+correlation matrix of the fit parameters:
+                m      c      
+m               1.000 
+c              -0.235  1.000 
+
+
+*******************************************************************************
+Wed Apr 03 18:38:36 2019
+
+
+FIT:    data read from 'latentheat.txt'
+        format = z
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: L(x)
+	L(x) = m*x + c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             c            
+   0 6.2043067680e+13  0.00e+00 1.97e+02  1.000000e+00  1.000000e+00
+   7 3.5752195824e+06 -1.42e-03 1.97e-05 -2.403427e+03  3.157671e+06
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 3.57522e+006
+rel. change during last iteration : -1.41892e-008
+
+degrees of freedom    (FIT_NDF)                        : 8
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 668.508
+variance of residuals (reduced chisquare) = WSSR/ndf   : 446902
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -2403.43         +/- 11.34        (0.472%)
+c               = 3.15767e+006     +/- 3155         (0.09992%)
+
+correlation matrix of the fit parameters:
+                m      c      
+m               1.000 
+c              -0.998  1.000 
