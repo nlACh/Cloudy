@@ -1,27 +1,20 @@
 import constants as cc
 
-def KA(T):
-    A = (2*cc.sigma_w*cc.M_w)/(cc.rho_w*8.314*T) # Taking Kg/mol. So R_v is in J/K mol Use 13.369
-    return A
+KA = lambda T: (2*cc.sigma_w*cc.M_w)/(cc.rho_w*8.314*T) # Taking Kg/mol. So R_v is in J/K mol Use 13.369
 
-def KB(M_species, rho_species, i):
-    B = (i*cc.M_w*rho_species)/(M_species*cc.rho_w)
-    return B
+KB = lambda M_species, rho_species, i: (i*cc.M_w*rho_species)/(M_species*cc.rho_w)
 
-def C(T, e_s):
-    K_ = ((cc.L_vap**2)*cc.rho_w)/(cc.kappa*cc.R_v*(T**2))
-    D_ = (cc.rho_w*cc.R_v*T)/(e_s*cc.D_v)
-    C_ = K_ + D_
-    return C_
+F_k = lambda T: ((cc.L_vap**2)*cc.rho_w)/(cc.kappa*cc.R_v*T)
+F_d = lambda T, e_s: (cc.rho_w*cc.R_v*T)/(e_s*cc.D_v)
+C_ = lambda T, e_s: F_k(T) + F_d(T, e_s)
 
-def A(T):
-    a1 = (cc.L_vap*cc.g)/(cc.R_v*cc.cp*T)
-    a2 = cc.g/cc.R
-    A_ = (1/T)*(a1 - a2)
-    return A_
+A = lambda T: (((cc.epsilon*cc.L_vap)/(cc.cp*T)-1)*cc.g)/(cc.R_dry*T)
+B = lambda T, e_s, p: (cc.epsilon*(cc.L_vap**2))/(cc.cp*cc.R_dry*(T**2)) + p/(cc.epsilon*e_s)
 
+"""
 def B(T, e_s, p):
     b1 = (cc.R_v*T)/(cc.epsilon*e_s)
     b2 = (cc.epsilon*(cc.L_vap**2))/(p*T*cc.cp)
     B_ = cc.rho_air*(b1 + b2)
     return B_
+"""
