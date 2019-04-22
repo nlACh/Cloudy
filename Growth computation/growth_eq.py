@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import constants as c
 import coeff as co
 
+
 dt = 0.05 # s
 ###
 # Data for species... Using NaCl
@@ -13,6 +14,7 @@ i = 2 # Vant Hoff Factor
 rs = 100E-9 # m
 #
 ###
+
 def es(x):
     a = [5.4842763E1, 6.76322E3, 4.21, 3.67E-4, 4.15E-2, 2.188E2, 5.3878E1, 1.33122E3, 9.44523, 1.4025E-2]
     tmp = a[0] - a[1]/x - a[2]*np.log(x) + a[3]*x + np.tanh(a[4]*(x-a[5]))*(a[6] - a[7]/x - a[8]*np.log(x) + a[9]*x)
@@ -31,8 +33,10 @@ def profiles(base_temp, base_p, time, updraft):
     
     return height, pressure, temp, e_s
 
-
-_t = np.linspace(0, 2000, int(2000/dt)+1) 
+r_ini = co.r0(1E-15, rho_species)
+r_1 = co.r0(1E-16, rho_species)
+r_2 = co.r0(1E-17, rho_species)
+_t = np.linspace(0, 1000, int(1000/dt)+1) 
 deltaz, p, T, es1 = profiles(283, 8E4, _t, updraft = 0.1)
 
 
@@ -53,7 +57,9 @@ def integrator(S0, r0, num, time, m_dry_parcel, updraft, T, es, p):
         
         _sdt = A * updraft - B1 * _rdt
         S.append(S[x] + _sdt)
-        
+    
+    return S, r
+    """    
     plt.grid()
     plt.semilogx(time, S)
     plt.xlabel('time')
@@ -65,7 +71,26 @@ def integrator(S0, r0, num, time, m_dry_parcel, updraft, T, es, p):
     plt.xlabel('time')
     plt.ylabel('radius m')
     plt.show()
-    
-integrator(0.005, rs, 1E8, _t, 1, 0.1, T, es1, p)
+    """
+rs = r_ini
+S, r = integrator(0.005, r_ini, 1E8, _t, 1, 0.1, T, es1, p)
+rs = r_1
+S1, r1 = integrator(0.005, r_1, 1E8, _t, 1, 0.1, T, es1, p)
+rs = r_2
+S2, r2 = integrator(0.005, r_2, 1E8, _t, 1, 0.1, T, es1, p)
 
-        
+plt.grid()
+plt.semilogx(_t, S, '-k')
+plt.semilogx(_t, S1, '-r')
+plt.semilogx(_t, S2, '-b')
+plt.xlabel('time')
+plt.ylabel('Supersat %')
+plt.show()
+
+plt.grid()
+plt.semilogy(r, _t, '-k')
+plt.semilogy(r1, _t, '-r')
+plt.semilogy(r2, _t, '-b')
+plt.ylabel('time')
+plt.xlabel('radius')
+plt.show()
